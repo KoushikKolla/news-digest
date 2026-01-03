@@ -32,9 +32,9 @@ const runDigest = async () => {
 
 // Schedule: 
 // Development: Every 5 minutes -> '*/5 * * * *'
-// Production: Every 12 hours -> '0 */12 * * *'
+// Production: Daily at 12 PM (Vercel Hobby Limit) -> '0 12 * * *'
 
-const schedule = process.env.NODE_ENV === 'production' ? '0 */12 * * *' : '*/5 * * * *';
+const schedule = process.env.NODE_ENV === 'production' ? '0 12 * * *' : '*/5 * * * *';
 
 const startCron = () => {
     console.log(`Starting Cron Job with schedule: ${schedule}`);
