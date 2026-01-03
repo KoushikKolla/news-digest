@@ -99,3 +99,16 @@ This project is configured for **Vercel**.
 -   `PUT /api/preferences/topics`
 -   `PUT /api/preferences/subscribe`
 -   `POST /api/preferences/manual-digest`
+-   `GET /api/cron` (Trigger Scheduled Digest)
+
+## Troubleshooting Cron Jobs
+
+If you exceed Vercel's Cron Job limit (Hobby Plan allows 2):
+
+1.  Use the manual trigger in the Dashboard.
+2.  Or use a free external service like [cron-job.org](https://cron-job.org/):
+    *   Create an account.
+    *   Create a Cron Job.
+    *   URL: `https://YOUR-APP-NAME.vercel.app/api/cron`
+    *   Schedule: Every 12 hours (or daily).
+
