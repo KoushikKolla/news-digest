@@ -13,10 +13,10 @@ const fetchNewsForTopics = async (topics, page = 1) => {
     try {
         const query = topics.map(t => `"${t}"`).join(' OR ');
 
-        // Fetch last 24 hours
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        const fromDate = yesterday.toISOString().split('T')[0];
+        // Fetch last 7 days to ensure we get results
+        const lastWeek = new Date();
+        lastWeek.setDate(lastWeek.getDate() - 7);
+        const fromDate = lastWeek.toISOString().split('T')[0];
 
         const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&from=${fromDate}&sortBy=popularity&pageSize=5&page=${page}&language=en&apiKey=${process.env.NEWS_API_KEY}`;
 
